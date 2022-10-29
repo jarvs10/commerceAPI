@@ -1,0 +1,34 @@
+app.get('/', (req, res) => {
+    res.send('Hola API :)');
+});
+
+app.post('/', (req, res) => {
+    res.send('Actualizando API post');
+});
+
+// query param //
+app.get('/Saludo', (req, res) => {
+    const nombre = req.query.nombre;
+    res.send(`Hola, Buenos dias ${nombre}`);
+});
+
+// body param no se usa get//
+app.post('/sumar', (req, res) => {
+    const num1 = req.body.number1;
+    const num2 = req.body.number2;
+    const result = num1 + num2;
+    res.send(`la suma es ${result}`);
+});
+
+app.post('/restar', (req, res) => {
+    const num1 = req.body.number1;
+    const num2 = req.body.number2;
+    const result = num1 - num2;
+    res.send(`la resta es ${result}`);
+});
+
+// url param //
+app.post('/info/:idUser', (req, res) => {
+    const idUser = req.params.idUser;
+    res.send(`el id del usuario es ${idUser}`);
+});
